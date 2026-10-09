@@ -1,0 +1,18 @@
+export const TYPE_COLORS: Record<string, string> = {
+  task: "#3d8bfd",
+  callback: "#c678dd",
+  choice: "#e6c07b",
+  success: "#3ecf8e",
+  fail: "#f07178",
+  wait: "#56b6c2",
+  wait_for: "#56b6c2",
+  notify_to: "#56b6c2",
+  publish: "#98c379",
+  loop: "#d19a66",
+  parallel: "#d19a66",
+  lambda: "#61afef",
+  human_task: "#c678dd",
+  redis_executor: "#abb2bf",
+  ref: "#8b9bb4",
+  unknown: "#5c6b7f",
+};

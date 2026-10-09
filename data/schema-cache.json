@@ -1,0 +1,3159 @@
+{
+    "generated_at": "2026-10-09T08:12:50.840Z",
+    "source": "/Users/vladyslav.zinkovskyi/work/lua/services_root/services/orchestrationplan",
+    "state_types": [
+        {
+            "id": "callback",
+            "label": "Callback",
+            "validator": "Callback.lua",
+            "required": [
+                "type",
+                "next",
+                "body",
+                "api_config",
+                "headers"
+            ],
+            "fields": [
+                {
+                    "name": "api_config",
+                    "ref": "#/definitions/api_config",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "body",
+                    "ref": "#/definitions/values_paths_lambda_object_or_array",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "headers",
+                    "ref": "#/definitions/values_paths_lambda_object",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "next",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "type",
+                    "ref": null,
+                    "type": "string",
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "callback_latest_plan",
+                    "ref": null,
+                    "type": "boolean",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "callback_skip_scenarios",
+                    "ref": "#/definitions/condition_operators",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "callback_ttl",
+                    "ref": "#/definitions/values_paths_lambda_non_negative_integer",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "catch",
+                    "ref": "#/definitions/catch_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "comments",
+                    "ref": "#/definitions/comments",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "default_callback",
+                    "ref": null,
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "execution_pause_config",
+                    "ref": "#/definitions/pause_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "inject",
+                    "ref": "#/definitions/object_or_array",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "name",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "not_retryable",
+                    "ref": null,
+                    "type": "boolean",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "notify_parent",
+                    "ref": null,
+                    "type": "boolean",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "on_pause",
+                    "ref": null,
+                    "type": "string",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "on_resume",
+                    "ref": null,
+                    "type": "string",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "persist_execution_variables_before_child",
+                    "ref": null,
+                    "type": "boolean",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "response_definition",
+                    "ref": "#/definitions/values_paths_lambda_object",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "result_path",
+                    "ref": "#/definitions/result_path",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "retry",
+                    "ref": "#/definitions/retry_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "set_execution_variables",
+                    "ref": "#/definitions/set_execution_variables",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "skip_reservation_override",
+                    "ref": null,
+                    "type": "boolean",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "skip_scenarios",
+                    "ref": "#/definitions/skip_scenarios",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "stage",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "visibility",
+                    "ref": "#/definitions/visibility",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                }
+            ],
+            "variants": [
+                {
+                    "required": [
+                        "type",
+                        "next",
+                        "body",
+                        "api_config",
+                        "headers"
+                    ],
+                    "fields": [
+                        "name",
+                        "type",
+                        "stage",
+                        "next",
+                        "callback_latest_plan",
+                        "api_config",
+                        "headers",
+                        "body",
+                        "result_path",
+                        "retry",
+                        "catch",
+                        "on_pause",
+                        "on_resume",
+                        "default_callback",
+                        "callback_ttl",
+                        "skip_reservation_override",
+                        "callback_skip_scenarios",
+                        "skip_scenarios",
+                        "execution_pause_config",
+                        "not_retryable",
+                        "response_definition",
+                        "inject",
+                        "comments",
+                        "visibility",
+                        "set_execution_variables",
+                        "persist_execution_variables_before_child",
+                        "notify_parent"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "choice",
+            "label": "Choice",
+            "validator": "Choice.lua",
+            "required": [
+                "type",
+                "choices",
+                "default"
+            ],
+            "fields": [
+                {
+                    "name": "choices",
+                    "ref": "#/definitions/values_paths_lambda_string",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "default",
+                    "ref": null,
+                    "type": "string",
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "type",
+                    "ref": null,
+                    "type": "string",
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "alarm_severity",
+                    "ref": "#/definitions/alarm_severity",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "can_return_to_stage",
+                    "ref": null,
+                    "type": "boolean",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "comments",
+                    "ref": "#/definitions/comments",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "execution_pause_config",
+                    "ref": "#/definitions/pause_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "inject",
+                    "ref": "#/definitions/object_or_array",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "make_async",
+                    "ref": "#/definitions/make_async",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "name",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "not_retryable",
+                    "ref": null,
+                    "type": "boolean",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "set_execution_variables",
+                    "ref": "#/definitions/set_execution_variables",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "skip_scenarios",
+                    "ref": "#/definitions/skip_scenarios",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "stage",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "visibility",
+                    "ref": "#/definitions/visibility",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                }
+            ],
+            "variants": [
+                {
+                    "required": [
+                        "type",
+                        "choices",
+                        "default"
+                    ],
+                    "fields": [
+                        "name",
+                        "type",
+                        "stage",
+                        "can_return_to_stage",
+                        "make_async",
+                        "choices",
+                        "default",
+                        "not_retryable",
+                        "inject",
+                        "skip_scenarios",
+                        "comments",
+                        "visibility",
+                        "set_execution_variables",
+                        "alarm_severity",
+                        "execution_pause_config"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "fail",
+            "label": "Fail",
+            "validator": "TerminalState.lua",
+            "required": [
+                "type",
+                "end"
+            ],
+            "fields": [
+                {
+                    "name": "end",
+                    "ref": null,
+                    "type": "boolean",
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "type",
+                    "ref": null,
+                    "type": "string",
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "comments",
+                    "ref": "#/definitions/comments",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "name",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "on_resume",
+                    "ref": null,
+                    "type": "string",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "response_definition",
+                    "ref": "#/definitions/values_paths_lambda_object",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "stage",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "visibility",
+                    "ref": "#/definitions/visibility",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                }
+            ],
+            "variants": [
+                {
+                    "required": [
+                        "type",
+                        "end"
+                    ],
+                    "fields": [
+                        "name",
+                        "type",
+                        "stage",
+                        "response_definition",
+                        "comments",
+                        "visibility",
+                        "end",
+                        "on_resume"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "human_task",
+            "label": "Human Task",
+            "validator": "HumanTask.lua",
+            "required": [
+                "type",
+                "next",
+                "body",
+                "api_config",
+                "headers",
+                "validation_schema"
+            ],
+            "fields": [
+                {
+                    "name": "api_config",
+                    "ref": "#/definitions/api_config",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "body",
+                    "ref": "#/definitions/values_paths_lambda_object_or_array",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "headers",
+                    "ref": "#/definitions/values_paths_lambda_object",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "next",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "type",
+                    "ref": null,
+                    "type": "string",
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "validation_schema",
+                    "ref": null,
+                    "type": "object",
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "catch",
+                    "ref": "#/definitions/catch_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "comments",
+                    "ref": "#/definitions/comments",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "default_human_task",
+                    "ref": null,
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "execution_pause_config",
+                    "ref": "#/definitions/pause_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "human_task_latest_plan",
+                    "ref": null,
+                    "type": "boolean",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "human_task_skip_scenarios",
+                    "ref": "#/definitions/condition_operators",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "human_task_ttl",
+                    "ref": "#/definitions/values_paths_lambda_non_negative_integer",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "inject",
+                    "ref": "#/definitions/object_or_array",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "name",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "not_retryable",
+                    "ref": null,
+                    "type": "boolean",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "on_pause",
+                    "ref": null,
+                    "type": "string",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "on_resume",
+                    "ref": null,
+                    "type": "string",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "persist_execution_variables_before_child",
+                    "ref": null,
+                    "type": "boolean",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "response_definition",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "result_path",
+                    "ref": "#/definitions/result_path",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "retry",
+                    "ref": "#/definitions/retry_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "set_execution_variables",
+                    "ref": "#/definitions/set_execution_variables",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "skip_reservation_override",
+                    "ref": null,
+                    "type": "boolean",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "skip_scenarios",
+                    "ref": "#/definitions/skip_scenarios",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "stage",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "visibility",
+                    "ref": "#/definitions/visibility",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                }
+            ],
+            "variants": [
+                {
+                    "required": [
+                        "type",
+                        "next",
+                        "body",
+                        "api_config",
+                        "headers",
+                        "validation_schema"
+                    ],
+                    "fields": [
+                        "name",
+                        "type",
+                        "stage",
+                        "next",
+                        "validation_schema",
+                        "human_task_latest_plan",
+                        "api_config",
+                        "headers",
+                        "body",
+                        "result_path",
+                        "retry",
+                        "catch",
+                        "on_pause",
+                        "on_resume",
+                        "default_human_task",
+                        "skip_scenarios",
+                        "human_task_ttl",
+                        "skip_reservation_override",
+                        "human_task_skip_scenarios",
+                        "execution_pause_config",
+                        "not_retryable",
+                        "response_definition",
+                        "inject",
+                        "comments",
+                        "visibility",
+                        "set_execution_variables",
+                        "persist_execution_variables_before_child"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "lambda",
+            "label": "Lambda",
+            "validator": "Lambda.lua",
+            "required": [
+                "type",
+                "next",
+                "lambda_code",
+                "result_path"
+            ],
+            "fields": [
+                {
+                    "name": "lambda_code",
+                    "ref": "#/definitions/lambda_code",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "next",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "result_path",
+                    "ref": "#/definitions/result_path",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "type",
+                    "ref": null,
+                    "type": "string",
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "comments",
+                    "ref": "#/definitions/comments",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "execution_pause_config",
+                    "ref": "#/definitions/pause_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "inject",
+                    "ref": "#/definitions/object_or_array",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "make_async",
+                    "ref": "#/definitions/make_async",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "name",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "not_retryable",
+                    "ref": null,
+                    "type": "boolean",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "on_pause",
+                    "ref": null,
+                    "type": "string",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "on_resume",
+                    "ref": null,
+                    "type": "string",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "response_definition",
+                    "ref": "#/definitions/values_paths_lambda_object",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "set_execution_variables",
+                    "ref": "#/definitions/set_execution_variables",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "skip_scenarios",
+                    "ref": "#/definitions/skip_scenarios",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "stage",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "visibility",
+                    "ref": "#/definitions/visibility",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                }
+            ],
+            "variants": [
+                {
+                    "required": [
+                        "type",
+                        "next",
+                        "lambda_code",
+                        "result_path"
+                    ],
+                    "fields": [
+                        "name",
+                        "stage",
+                        "type",
+                        "next",
+                        "result_path",
+                        "lambda_code",
+                        "skip_scenarios",
+                        "execution_pause_config",
+                        "make_async",
+                        "not_retryable",
+                        "inject",
+                        "visibility",
+                        "comments",
+                        "response_definition",
+                        "on_pause",
+                        "on_resume",
+                        "set_execution_variables"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "loop",
+            "label": "Loop",
+            "validator": "Loop.lua",
+            "required": [
+                "type",
+                "next",
+                "start_at",
+                "foreach"
+            ],
+            "fields": [
+                {
+                    "name": "foreach",
+                    "ref": "#/definitions/values_paths_lambda_object_or_array",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "next",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "name": "start_at",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "name": "type",
+                    "ref": null,
+                    "type": "string",
+                    "required": true,
+                    "variants": [
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "name": "comments",
+                    "ref": "#/definitions/comments",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "name": "execution_pause_config",
+                    "ref": "#/definitions/pause_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "name": "inject",
+                    "ref": "#/definitions/object_or_array",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "name": "make_async",
+                    "ref": "#/definitions/make_async",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "name": "name",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "name": "not_retryable",
+                    "ref": null,
+                    "type": "boolean",
+                    "required": false,
+                    "variants": [
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "name": "result_path",
+                    "ref": "#/definitions/result_path",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "name": "set_execution_variables",
+                    "ref": "#/definitions/set_execution_variables",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "name": "skip_scenarios",
+                    "ref": "#/definitions/skip_scenarios",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "name": "stage",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "name": "visibility",
+                    "ref": "#/definitions/visibility",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "name": "while",
+                    "ref": "#/definitions/values_paths_lambda_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        1
+                    ]
+                }
+            ],
+            "variants": [
+                {
+                    "required": [
+                        "type",
+                        "next",
+                        "start_at",
+                        "foreach"
+                    ],
+                    "fields": [
+                        "name",
+                        "type",
+                        "stage",
+                        "next",
+                        "start_at",
+                        "foreach",
+                        "set_execution_variables",
+                        "result_path",
+                        "not_retryable",
+                        "skip_scenarios",
+                        "inject",
+                        "make_async",
+                        "visibility",
+                        "execution_pause_config",
+                        "comments"
+                    ]
+                },
+                {
+                    "required": [
+                        "type",
+                        "next",
+                        "start_at",
+                        "while"
+                    ],
+                    "fields": [
+                        "name",
+                        "type",
+                        "next",
+                        "stage",
+                        "start_at",
+                        "not_retryable",
+                        "while",
+                        "skip_scenarios",
+                        "inject",
+                        "result_path",
+                        "set_execution_variables",
+                        "make_async",
+                        "visibility",
+                        "execution_pause_config",
+                        "comments"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "notify_to",
+            "label": "Notify To",
+            "validator": "NotifyTo.lua",
+            "required": [
+                "type",
+                "next",
+                "correlation_id",
+                "data"
+            ],
+            "fields": [
+                {
+                    "name": "correlation_id",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "data",
+                    "ref": "#/definitions/values_paths_lambda_object",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "next",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "type",
+                    "ref": null,
+                    "type": "string",
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "catch",
+                    "ref": "#/definitions/catch_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "comments",
+                    "ref": "#/definitions/comments",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "execution_pause_config",
+                    "ref": "#/definitions/pause_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "inject",
+                    "ref": "#/definitions/object_or_array",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "lock_config",
+                    "ref": "#/definitions/lock_config",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "make_async",
+                    "ref": "#/definitions/make_async",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "name",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "not_retryable",
+                    "ref": null,
+                    "type": "boolean",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "result_path",
+                    "ref": "#/definitions/result_path",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "retry",
+                    "ref": "#/definitions/retry_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "set_execution_variables",
+                    "ref": "#/definitions/set_execution_variables",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "skip_scenarios",
+                    "ref": "#/definitions/skip_scenarios",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "stage",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "visibility",
+                    "ref": "#/definitions/visibility",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                }
+            ],
+            "variants": [
+                {
+                    "required": [
+                        "type",
+                        "next",
+                        "correlation_id",
+                        "data"
+                    ],
+                    "fields": [
+                        "type",
+                        "next",
+                        "name",
+                        "stage",
+                        "correlation_id",
+                        "data",
+                        "result_path",
+                        "lock_config",
+                        "inject",
+                        "comments",
+                        "skip_scenarios",
+                        "execution_pause_config",
+                        "make_async",
+                        "not_retryable",
+                        "visibility",
+                        "set_execution_variables",
+                        "retry",
+                        "catch"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "parallel",
+            "label": "Parallel",
+            "validator": "Parallel.lua",
+            "required": [
+                "type"
+            ],
+            "fields": [
+                {
+                    "name": "type",
+                    "ref": null,
+                    "type": "string",
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "comments",
+                    "ref": "#/definitions/comments",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "execution_pause_config",
+                    "ref": "#/definitions/pause_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "execution_plans",
+                    "ref": "#/definitions/input_validation_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "make_async",
+                    "ref": "#/definitions/make_async",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "name",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "next",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "not_retryable",
+                    "ref": null,
+                    "type": "boolean",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "persist_execution_variables_before_child",
+                    "ref": null,
+                    "type": "boolean",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "result_path",
+                    "ref": "#/definitions/result_path",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "set_execution_variables",
+                    "ref": "#/definitions/set_execution_variables",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "skip_scenarios",
+                    "ref": "#/definitions/skip_scenarios",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "stage",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "visibility",
+                    "ref": "#/definitions/visibility",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                }
+            ],
+            "variants": [
+                {
+                    "required": [
+                        "type"
+                    ],
+                    "fields": [
+                        "name",
+                        "type",
+                        "next",
+                        "stage",
+                        "execution_plans",
+                        "result_path",
+                        "execution_pause_config",
+                        "make_async",
+                        "not_retryable",
+                        "visibility",
+                        "skip_scenarios",
+                        "comments",
+                        "set_execution_variables",
+                        "persist_execution_variables_before_child"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "publish",
+            "label": "Publish",
+            "validator": "Publish.lua",
+            "required": [
+                "type",
+                "next",
+                "events",
+                "message_queue_type"
+            ],
+            "fields": [
+                {
+                    "name": "events",
+                    "ref": "#/definitions/values_paths_lambda_object_or_array",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "message_queue_type",
+                    "ref": null,
+                    "type": "string",
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "next",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "type",
+                    "ref": null,
+                    "type": "string",
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "catch",
+                    "ref": "#/definitions/catch_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "cluster",
+                    "ref": null,
+                    "type": "string",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "comments",
+                    "ref": "#/definitions/comments",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "execution_pause_config",
+                    "ref": "#/definitions/pause_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "make_async",
+                    "ref": "#/definitions/make_async",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "name",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "not_retryable",
+                    "ref": null,
+                    "type": "boolean",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "publisher_type",
+                    "ref": null,
+                    "type": "string",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "retry",
+                    "ref": "#/definitions/retry_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "skip_scenarios",
+                    "ref": "#/definitions/skip_scenarios",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "stage",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "topic",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "visibility",
+                    "ref": "#/definitions/visibility",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                }
+            ],
+            "variants": [
+                {
+                    "required": [
+                        "type",
+                        "next",
+                        "events",
+                        "message_queue_type"
+                    ],
+                    "fields": [
+                        "type",
+                        "name",
+                        "stage",
+                        "next",
+                        "topic",
+                        "events",
+                        "make_async",
+                        "message_queue_type",
+                        "cluster",
+                        "catch",
+                        "retry",
+                        "publisher_type",
+                        "not_retryable",
+                        "comments",
+                        "visibility",
+                        "execution_pause_config",
+                        "skip_scenarios"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "redis_executor",
+            "label": "Redis Executor",
+            "validator": "RedisExecutor.lua",
+            "required": [
+                "type",
+                "action_type",
+                "params",
+                "next"
+            ],
+            "fields": [
+                {
+                    "name": "action_type",
+                    "ref": null,
+                    "type": "string",
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "next",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "params",
+                    "ref": null,
+                    "type": "object",
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "type",
+                    "ref": null,
+                    "type": "string",
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "catch",
+                    "ref": "#/definitions/catch_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "comments",
+                    "ref": "#/definitions/comments",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "execution_pause_config",
+                    "ref": "#/definitions/pause_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "inject",
+                    "ref": "#/definitions/object_or_array",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "make_async",
+                    "ref": "#/definitions/make_async",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "name",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "not_retryable",
+                    "ref": null,
+                    "type": "boolean",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "retry",
+                    "ref": "#/definitions/retry_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "set_execution_variables",
+                    "ref": "#/definitions/set_execution_variables",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "skip_scenarios",
+                    "ref": "#/definitions/skip_scenarios",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "stage",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "visibility",
+                    "ref": "#/definitions/visibility",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                }
+            ],
+            "variants": [
+                {
+                    "required": [
+                        "type",
+                        "action_type",
+                        "params",
+                        "next"
+                    ],
+                    "fields": [
+                        "type",
+                        "next",
+                        "name",
+                        "stage",
+                        "action_type",
+                        "inject",
+                        "not_retryable",
+                        "comments",
+                        "visibility",
+                        "set_execution_variables",
+                        "skip_scenarios",
+                        "retry",
+                        "catch",
+                        "execution_pause_config",
+                        "make_async",
+                        "params"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "success",
+            "label": "Success",
+            "validator": "TerminalState.lua",
+            "required": [
+                "type",
+                "end"
+            ],
+            "fields": [
+                {
+                    "name": "end",
+                    "ref": null,
+                    "type": "boolean",
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "type",
+                    "ref": null,
+                    "type": "string",
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "comments",
+                    "ref": "#/definitions/comments",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "name",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "on_resume",
+                    "ref": null,
+                    "type": "string",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "response_definition",
+                    "ref": "#/definitions/values_paths_lambda_object",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "stage",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "visibility",
+                    "ref": "#/definitions/visibility",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                }
+            ],
+            "variants": [
+                {
+                    "required": [
+                        "type",
+                        "end"
+                    ],
+                    "fields": [
+                        "name",
+                        "type",
+                        "stage",
+                        "response_definition",
+                        "comments",
+                        "visibility",
+                        "end",
+                        "on_resume"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "task",
+            "label": "Task",
+            "validator": "Task.lua",
+            "required": [
+                "type",
+                "next",
+                "api_config",
+                "headers"
+            ],
+            "fields": [
+                {
+                    "name": "api_config",
+                    "ref": "#/definitions/api_config",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "headers",
+                    "ref": "#/definitions/values_paths_lambda_object",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "next",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "type",
+                    "ref": null,
+                    "type": "string",
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "body",
+                    "ref": "#/definitions/values_paths_lambda_object_or_array",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "catch",
+                    "ref": "#/definitions/catch_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "comments",
+                    "ref": "#/definitions/comments",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "execution_pause_config",
+                    "ref": "#/definitions/pause_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "inject",
+                    "ref": "#/definitions/object_or_array",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "make_async",
+                    "ref": "#/definitions/make_async",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "name",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "not_retryable",
+                    "ref": null,
+                    "type": "boolean",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "on_pause",
+                    "ref": null,
+                    "type": "string",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "on_resume",
+                    "ref": null,
+                    "type": "string",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "persist_execution_variables_before_child",
+                    "ref": null,
+                    "type": "boolean",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "response_definition",
+                    "ref": "#/definitions/values_paths_lambda_object",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "result_path",
+                    "ref": "#/definitions/result_path",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "retry",
+                    "ref": "#/definitions/retry_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "set_execution_variables",
+                    "ref": "#/definitions/set_execution_variables",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "skip_scenarios",
+                    "ref": "#/definitions/skip_scenarios",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "stage",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "visibility",
+                    "ref": "#/definitions/visibility",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                }
+            ],
+            "variants": [
+                {
+                    "required": [
+                        "type",
+                        "next",
+                        "api_config",
+                        "headers"
+                    ],
+                    "fields": [
+                        "name",
+                        "stage",
+                        "type",
+                        "next",
+                        "api_config",
+                        "headers",
+                        "body",
+                        "result_path",
+                        "retry",
+                        "catch",
+                        "make_async",
+                        "on_pause",
+                        "on_resume",
+                        "response_definition",
+                        "execution_pause_config",
+                        "not_retryable",
+                        "inject",
+                        "comments",
+                        "visibility",
+                        "skip_scenarios",
+                        "set_execution_variables",
+                        "persist_execution_variables_before_child"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "wait",
+            "label": "Wait",
+            "validator": "Wait.lua",
+            "required": [
+                "type",
+                "next",
+                "until"
+            ],
+            "fields": [
+                {
+                    "name": "next",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "name": "type",
+                    "ref": null,
+                    "type": "string",
+                    "required": true,
+                    "variants": [
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "name": "until",
+                    "ref": "#/definitions/values_paths_lambda_integer",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "comments",
+                    "ref": "#/definitions/comments",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "name": "delay",
+                    "ref": "#/definitions/values_paths_lambda_non_negative_integer",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        1
+                    ]
+                },
+                {
+                    "name": "execution_pause_config",
+                    "ref": "#/definitions/pause_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "name": "name",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "name": "not_retryable",
+                    "ref": null,
+                    "type": "boolean",
+                    "required": false,
+                    "variants": [
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "name": "skip_scenarios",
+                    "ref": "#/definitions/skip_scenarios",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "name": "stage",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "name": "visibility",
+                    "ref": "#/definitions/visibility",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0,
+                        1
+                    ]
+                }
+            ],
+            "variants": [
+                {
+                    "required": [
+                        "type",
+                        "next",
+                        "until"
+                    ],
+                    "fields": [
+                        "type",
+                        "name",
+                        "stage",
+                        "next",
+                        "until",
+                        "execution_pause_config",
+                        "not_retryable",
+                        "skip_scenarios",
+                        "comments",
+                        "visibility"
+                    ]
+                },
+                {
+                    "required": [
+                        "type",
+                        "next",
+                        "delay"
+                    ],
+                    "fields": [
+                        "type",
+                        "next",
+                        "name",
+                        "stage",
+                        "delay",
+                        "execution_pause_config",
+                        "not_retryable",
+                        "comments",
+                        "skip_scenarios",
+                        "visibility"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "wait_for",
+            "label": "Wait For",
+            "validator": "WaitFor.lua",
+            "required": [
+                "type",
+                "next",
+                "depends_on"
+            ],
+            "fields": [
+                {
+                    "name": "depends_on",
+                    "ref": "#/definitions/values_paths_lambda_string",
+                    "type": "object",
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "next",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "type",
+                    "ref": null,
+                    "type": "string",
+                    "required": true,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "catch",
+                    "ref": "#/definitions/catch_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "comments",
+                    "ref": "#/definitions/comments",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "default_notification",
+                    "ref": null,
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "execution_pause_config",
+                    "ref": "#/definitions/pause_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "inject",
+                    "ref": "#/definitions/object_or_array",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "lock_config",
+                    "ref": "#/definitions/lock_config",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "make_async",
+                    "ref": "#/definitions/make_async",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "name",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "not_retryable",
+                    "ref": null,
+                    "type": "boolean",
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "result_path",
+                    "ref": "#/definitions/result_path",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "retry",
+                    "ref": "#/definitions/retry_schema",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "set_execution_variables",
+                    "ref": "#/definitions/set_execution_variables",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "skip_scenarios",
+                    "ref": "#/definitions/skip_scenarios",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "stage",
+                    "ref": "#/definitions/non_empty_string",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "visibility",
+                    "ref": "#/definitions/visibility",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                },
+                {
+                    "name": "wait_for_ttl",
+                    "ref": "#/definitions/values_paths_lambda_non_negative_integer",
+                    "type": null,
+                    "required": false,
+                    "variants": [
+                        0
+                    ]
+                }
+            ],
+            "variants": [
+                {
+                    "required": [
+                        "type",
+                        "next",
+                        "depends_on"
+                    ],
+                    "fields": [
+                        "type",
+                        "next",
+                        "name",
+                        "stage",
+                        "wait_for_ttl",
+                        "depends_on",
+                        "lock_config",
+                        "default_notification",
+                        "inject",
+                        "result_path",
+                        "skip_scenarios",
+                        "execution_pause_config",
+                        "make_async",
+                        "not_retryable",
+                        "visibility",
+                        "retry",
+                        "catch",
+                        "comments",
+                        "set_execution_variables"
+                    ]
+                }
+            ]
+        }
+    ],
+    "wrappers": [
+        {
+            "id": "ampl_setup_system_integration_item",
+            "ref": "#.ampl_setup_system_integration_item",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/ampl_setup_system_integration_item.json"
+        },
+        {
+            "id": "billing_failed_transaction",
+            "ref": "#.billing_failed_transaction",
+            "kind": "choice_blocks",
+            "path": "common/templates/default/choice_blocks/billing_failed_transaction.json"
+        },
+        {
+            "id": "calculate_price_pausable",
+            "ref": "#.calculate_price_pausable",
+            "kind": "state_blocks",
+            "path": "common/templates/default/pricing/state_blocks/calculate_price_pausable.json"
+        },
+        {
+            "id": "callback_parent",
+            "ref": "#.callback_parent",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/callback_parent.json"
+        },
+        {
+            "id": "callback_parent_bill_cycle_notify",
+            "ref": "#.callback_parent_bill_cycle_notify",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/callback_parent_bill_cycle_notify.json"
+        },
+        {
+            "id": "callback_parent_execution",
+            "ref": "#.callback_parent_execution",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/callback_parent_execution.json"
+        },
+        {
+            "id": "callback_pausable",
+            "ref": "#.callback_pausable",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/callback_pausable.json"
+        },
+        {
+            "id": "callback_pausable_2_weeks",
+            "ref": "#.callback_pausable_2_weeks",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/callback_pausable_2_weeks.json"
+        },
+        {
+            "id": "callback_pausable_2_weeks_wait_on_502",
+            "ref": "#.callback_pausable_2_weeks_wait_on_502",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/callback_pausable_2_weeks_wait_on_502.json"
+        },
+        {
+            "id": "callback_pausable_wait_on_502",
+            "ref": "#.callback_pausable_wait_on_502",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/callback_pausable_wait_on_502.json"
+        },
+        {
+            "id": "callback_regular",
+            "ref": "#.callback_regular",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/callback_regular.json"
+        },
+        {
+            "id": "callback_run_plan",
+            "ref": "#.callback_run_plan",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/callback_run_plan.json"
+        },
+        {
+            "id": "callback_run_plan_with_rollback",
+            "ref": "#.callback_run_plan_with_rollback",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/callback_run_plan_with_rollback.json"
+        },
+        {
+            "id": "cancel_reservation_task",
+            "ref": "#.cancel_reservation_task",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/cancel_reservation_task.json"
+        },
+        {
+            "id": "catch_catalog_subscription_limit",
+            "ref": "#.catch_catalog_subscription_limit",
+            "kind": "catch_blocks",
+            "path": "common/templates/default/catch_blocks/catch_catalog_subscription_limit.json"
+        },
+        {
+            "id": "catch_commit",
+            "ref": "#.catch_commit",
+            "kind": "catch_blocks",
+            "path": "common/templates/default/catch_blocks/catch_commit.json"
+        },
+        {
+            "id": "catch_empty_offer_by_id",
+            "ref": "#.catch_empty_offer_by_id",
+            "kind": "catch_blocks",
+            "path": "common/templates/default/catch_blocks/catch_empty_offer_by_id.json"
+        },
+        {
+            "id": "catch_empty_orders",
+            "ref": "#.catch_empty_orders",
+            "kind": "catch_blocks",
+            "path": "common/templates/default/catch_blocks/catch_empty_orders.json"
+        },
+        {
+            "id": "catch_failed_filters_by_id",
+            "ref": "#.catch_failed_filters_by_id",
+            "kind": "catch_blocks",
+            "path": "common/templates/default/catch_blocks/catch_failed_filters_by_id.json"
+        },
+        {
+            "id": "catch_order_execution_already_in_progress",
+            "ref": "#.catch_order_execution_already_in_progress",
+            "kind": "catch_blocks",
+            "path": "common/templates/default/catch_blocks/catch_order_execution_already_in_progress.json"
+        },
+        {
+            "id": "catch_publish",
+            "ref": "#.catch_publish",
+            "kind": "catch_blocks",
+            "path": "common/templates/default/catch_blocks/catch_publish.json"
+        },
+        {
+            "id": "catch_recalculate_and_replace_recurring_bill_invalid_subscriber_state",
+            "ref": "#.catch_recalculate_and_replace_recurring_bill_invalid_subscriber_state",
+            "kind": "catch_blocks",
+            "path": "common/templates/default/catch_blocks/catch_recalculate_and_replace_recurring_bill_invalid_subscriber_state.json"
+        },
+        {
+            "id": "catch_regular",
+            "ref": "#.catch_regular",
+            "kind": "catch_blocks",
+            "path": "common/templates/default/catch_blocks/catch_regular.json"
+        },
+        {
+            "id": "catch_regular_no_alarm",
+            "ref": "#.catch_regular_no_alarm",
+            "kind": "catch_blocks",
+            "path": "common/templates/default/catch_blocks/catch_regular_no_alarm.json"
+        },
+        {
+            "id": "catch_run_plan",
+            "ref": "#.catch_run_plan",
+            "kind": "catch_blocks",
+            "path": "common/templates/default/catch_blocks/catch_run_plan.json"
+        },
+        {
+            "id": "catch_sim_provision_failed",
+            "ref": "#.catch_sim_provision_failed",
+            "kind": "catch_blocks",
+            "path": "common/templates/pnccpalau/catch_blocks/catch_sim_provision_failed.json"
+        },
+        {
+            "id": "catch_sim_provision_release_failed",
+            "ref": "#.catch_sim_provision_release_failed",
+            "kind": "catch_blocks",
+            "path": "common/templates/pnccpalau/catch_blocks/catch_sim_provision_release_failed.json"
+        },
+        {
+            "id": "deactivate_capture_order_locking",
+            "ref": "#.deactivate_capture_order_locking",
+            "kind": "locking_blocks",
+            "path": "common/templates/a1slovenia/locking_blocks/deactivate_capture_order_locking.json"
+        },
+        {
+            "id": "deactivate_capture_order_locking_default",
+            "ref": "#.deactivate_capture_order_locking_default",
+            "kind": "locking_blocks",
+            "path": "common/templates/default/locking_blocks/deactivate_capture_order_locking_default.json"
+        },
+        {
+            "id": "default_pause_scenarios",
+            "ref": "#.default_pause_scenarios",
+            "kind": "pause_blocks",
+            "path": "common/templates/default/pause_blocks/default_pause_scenarios.json"
+        },
+        {
+            "id": "enrich_entities",
+            "ref": "#.enrich_entities",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/enrich_entities.json"
+        },
+        {
+            "id": "get_um_entities",
+            "ref": "#.get_um_entities",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/get_um_entities.json"
+        },
+        {
+            "id": "group_line_items",
+            "ref": "#.group_line_items",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/group_line_items.json"
+        },
+        {
+            "id": "invalid_response_pause_scenario",
+            "ref": "#.invalid_response_pause_scenario",
+            "kind": "pause_blocks",
+            "path": "common/templates/default/pause_blocks/invalid_response_pause_scenario.json"
+        },
+        {
+            "id": "mtn_retry_deactivate_subscriber",
+            "ref": "#.mtn_retry_deactivate_subscriber",
+            "kind": "retry_blocks",
+            "path": "common/templates/default/retry_blocks/mtn_retry_deactivate_subscriber.json"
+        },
+        {
+            "id": "mtn_retry_regular",
+            "ref": "#.mtn_retry_regular",
+            "kind": "retry_blocks",
+            "path": "common/templates/default/retry_blocks/mtn_retry_regular.json"
+        },
+        {
+            "id": "nc_callback",
+            "ref": "#.nc_callback",
+            "kind": "state_blocks",
+            "path": "common/templates/default/mvne/state_blocks/nc_callback.json"
+        },
+        {
+            "id": "nc_poll_result",
+            "ref": "#.nc_poll_result",
+            "kind": "state_blocks",
+            "path": "common/templates/default/mvne/state_blocks/nc_poll_result.json"
+        },
+        {
+            "id": "nip_task_pausable",
+            "ref": "#.nip_task_pausable",
+            "kind": "state_blocks",
+            "path": "common/templates/default/mvne/state_blocks/nip_task_pausable.json"
+        },
+        {
+            "id": "nip_throttle_retry",
+            "ref": "#.nip_throttle_retry",
+            "kind": "retry_blocks",
+            "path": "common/templates/default/mvne/retry_blocks/nip_throttle_retry.json"
+        },
+        {
+            "id": "pause_except_order_execution_already_in_progress",
+            "ref": "#.pause_except_order_execution_already_in_progress",
+            "kind": "pause_blocks",
+            "path": "common/templates/default/pause_blocks/pause_except_order_execution_already_in_progress.json"
+        },
+        {
+            "id": "pause_failed_fulfilment",
+            "ref": "#.pause_failed_fulfilment",
+            "kind": "pause_blocks",
+            "path": "common/templates/default/pause_blocks/pause_failed_fulfilment.json"
+        },
+        {
+            "id": "payment_manage_methods_retry",
+            "ref": "#.payment_manage_methods_retry",
+            "kind": "retry_blocks",
+            "path": "common/templates/default/retry_blocks/payment_manage_methods_retry.json"
+        },
+        {
+            "id": "retry_regular",
+            "ref": "#.retry_regular",
+            "kind": "retry_blocks",
+            "path": "common/templates/default/retry_blocks/retry_regular.json"
+        },
+        {
+            "id": "retry_regular_except_502",
+            "ref": "#.retry_regular_except_502",
+            "kind": "retry_blocks",
+            "path": "common/templates/default/retry_blocks/retry_regular_except_502.json"
+        },
+        {
+            "id": "retry_regular_with_500",
+            "ref": "#.retry_regular_with_500",
+            "kind": "retry_blocks",
+            "path": "common/templates/default/retry_blocks/retry_regular_with_500.json"
+        },
+        {
+            "id": "run_plan_pausable",
+            "ref": "#.run_plan_pausable",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/run_plan_pausable.json"
+        },
+        {
+            "id": "run_plan_regular",
+            "ref": "#.run_plan_regular",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/run_plan_regular.json"
+        },
+        {
+            "id": "run_plan_with_rollback",
+            "ref": "#.run_plan_with_rollback",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/run_plan_with_rollback.json"
+        },
+        {
+            "id": "schedule_execution",
+            "ref": "#.schedule_execution",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/schedule_execution.json"
+        },
+        {
+            "id": "schedule_execution_with_rollback",
+            "ref": "#.schedule_execution_with_rollback",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/schedule_execution_with_rollback.json"
+        },
+        {
+            "id": "service_execution_create",
+            "ref": "#.service_execution_create",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/service_execution_create.json"
+        },
+        {
+            "id": "service_execution_update",
+            "ref": "#.service_execution_update",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/service_execution_update.json"
+        },
+        {
+            "id": "sub_plan_pause_scenario",
+            "ref": "#.sub_plan_pause_scenario",
+            "kind": "pause_blocks",
+            "path": "common/templates/default/pause_blocks/sub_plan_pause_scenario.json"
+        },
+        {
+            "id": "task_nested_plan_failed_with_rollback",
+            "ref": "#.task_nested_plan_failed_with_rollback",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/task_nested_plan_failed_with_rollback.json"
+        },
+        {
+            "id": "task_pausable",
+            "ref": "#.task_pausable",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/task_pausable.json"
+        },
+        {
+            "id": "task_pausable_nested_plan_paused",
+            "ref": "#.task_pausable_nested_plan_paused",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/task_pausable_nested_plan_paused.json"
+        },
+        {
+            "id": "task_regular",
+            "ref": "#.task_regular",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/task_regular.json"
+        },
+        {
+            "id": "task_with_rollback",
+            "ref": "#.task_with_rollback",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/task_with_rollback.json"
+        },
+        {
+            "id": "tmf_billing_gateway_no_retry",
+            "ref": "#.tmf_billing_gateway_no_retry",
+            "kind": "retry_blocks",
+            "path": "common/templates/default/retry_blocks/tmf_billing_gateway_no_retry.json"
+        },
+        {
+            "id": "um_check_onboarding_completion_locking",
+            "ref": "#.um_check_onboarding_completion_locking",
+            "kind": "locking_blocks",
+            "path": "common/templates/default/mvne/locking_blocks/um_check_onboarding_completion_locking.json"
+        },
+        {
+            "id": "upsert_order_entities",
+            "ref": "#.upsert_order_entities",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/upsert_order_entities.json"
+        },
+        {
+            "id": "upsert_reservation_for_provisioning_task",
+            "ref": "#.upsert_reservation_for_provisioning_task",
+            "kind": "state_blocks",
+            "path": "common/templates/default/state_blocks/upsert_reservation_for_provisioning_task.json"
+        }
+    ],
+    "plan_fields": [
+        "plan_id",
+        "plan_owner",
+        "start_at",
+        "states",
+        "mapper_ids",
+        "input_validation_schema",
+        "locking",
+        "execution_pause_config",
+        "constants",
+        "is_default",
+        "rollback_definition",
+        "actions",
+        "on_pause",
+        "on_resume",
+        "access",
+        "async_writes",
+        "redact_fields",
+        "comments",
+        "name",
+        "version"
+    ]
+}

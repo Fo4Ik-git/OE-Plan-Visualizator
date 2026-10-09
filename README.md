@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OE Plan Creator
 
-## Getting Started
+Next.js rewrite of **OE Plan Visual** — local visualizer / editor / runner for LotusFlare Orchestration Engine plans.
 
-First, run the development server:
+Requires **Node.js 20+** (local project). No global installs beyond that.
+
+## Quick start
 
 ```bash
+cd OE_plan_v_creator
+cp settings.example.json settings.json
+# edit settings.json → lua_root (absolute path to your lua clone)
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open **http://127.0.0.1:3000**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## What you can do
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Same as the Python tool:
 
-## Learn More
+1. **View** — open a plan from the lua tree, a local file, or paste JSON. Graph shows states and edges (`next`, choice, catch, …). `ref`/`merge` templates are resolved for the graph; the JSON pane keeps the canonical form.
+2. **Edit** — add states from OE types or `#.wrapper` blocks (loaded from `orchestrationplan` templates). Edit in the inspector or JSON pane. Export JSON that matches hand-written OE plans.
+3. **Run** — against a local Rhino OE: host, `operator_name`, Bearer token (or **Get service token**). **Upsert before run** is on by default (`add_plan` / `update_plan`), then `execute_plan_immediately`.
 
-To learn more about Next.js, take a look at the following resources:
+## Settings
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Key | Meaning |
+|-----|---------|
+| `lua_root` | Absolute path to the `lua` repo |
+| `default_host` | OE base URL — local Rhino Lua NodePort is usually `http://localhost:31880` |
+| `default_operator` | Canonical operator name for mutating plan APIs |
+| `port` | Reserved (Next uses `npm run dev` port, default 3000) |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Refresh schema from lua** (Settings) rescans validators + state-block wrappers under `orchestrationplan`.
 
-## Deploy on Vercel
+## Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Next.js 16.4 (App Router) + React 19 + TypeScript
+- Tailwind CSS 4 + **shadcn/ui** (`src/components/ui/`)
+- Cytoscape + dagre (graph)
+- Monaco (JSON editors)
+- Zustand (UI state)
+- Server API routes for lua FS + OE proxy (replaces `server.py`)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Layout
+
+```
+src/app/api/                 # /api/settings, /api/lua/*, /api/proxy, /api/schema, …
+src/components/ui/           # shadcn primitives (CLI-managed)
+src/components/editor/       # feature modules (toolbar, sidebar, inspector, panes)
+  dialogs/                   # one *Dialog.tsx per modal
+src/components/PlanEditor.tsx  # orchestration only
+src/lib/plan/                # model, validator, run helpers
+src/lib/server/              # lua FS, resolve refs, schema extract
+.cursor/rules/               # AI rules: structure, reuse, modular + adaptive UI
+data/schema-cache.json
+settings.json
+```
+
+Agent rules (always apply):
+
+- `modular-ui.mdc` — split by region, configurable props, desktop-first adaptive
+- `component-reuse.mdc` — use shadcn, no one-off buttons/modals
+- `project-structure.mdc` — where files belong
+
+Add UI pieces with:
+
+```bash
+npx shadcn@latest add <component>
+```
+
+## Auth (same idea as `it_bruno`)
+
+- Prefer **Get service token** → `POST /api/v3/authorization/get_service_token`
+- Or paste a Bearer token from Bruno / portal
+- Plan upserts need the **canonical** operator name
+
+Local OE must already be running; this tool does not start Rhino.

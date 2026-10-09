@@ -1,0 +1,42 @@
+---
+description: Project structure and where new code belongs in OE Plan Creator
+alwaysApply: true
+---
+
+# Project structure
+
+Keep the tree predictable. Put new code in the right folder — do not invent parallel trees.
+
+```
+src/
+  app/                 # Next.js App Router only (pages + route handlers)
+    api/               # HTTP API — mirrors former Python server endpoints
+    layout.tsx         # fonts, Providers, dark theme shell
+    page.tsx           # entry — compose feature components, no business UI here
+  components/
+    ui/                # shadcn primitives ONLY (CLI-managed; prefer `npx shadcn add`)
+    editor/            # feature UI modules (toolbar, sidebar, inspector, panes)
+      dialogs/         # one file per modal flow (*Dialog.tsx)
+    providers.tsx      # app-wide client providers (Tooltip, Toaster, …)
+  hooks/               # reusable React hooks (no JSX layout)
+  lib/
+    plan/              # OE plan domain (model, validator, run, colors, types)
+    server/            # Node-only FS / settings / schema / proxy helpers
+    api.ts             # browser fetch helpers
+    utils.ts           # cn() and shared client utils
+  store/               # Zustand stores
+data/                  # schema-cache.json (generated)
+settings.json          # local settings (gitignored); settings.example.json committed
+```
+
+## Placement rules
+
+- **Route handlers** → `src/app/api/**/route.ts`. Shared logic → `src/lib/server/`.
+- **Plan domain logic** (normalize, edges, validate, upsert/run) → `src/lib/plan/`. Never duplicate in components.
+- **Reusable visuals** → `src/components/ui/` via shadcn CLI, or thin wrappers in `src/components/editor/`.
+- **Editor regions** → `src/components/editor/*` (sidebar, inspector, graph panel, json pane, toolbar).
+- **Modals** → `src/components/editor/dialogs/*Dialog.tsx` (compose `AppDialog`).
+- **`PlanEditor.tsx`** = orchestration only (state + compose modules). No large panel/modal JSX.
+- **Do not** put business logic in `src/components/ui/`.
+- **Do not** add one-off styled `div`/`button`/`input` when a `ui/*` primitive exists.
+- Components are **configurable** (`className` + props) and **desktop-first adaptive** — see `modular-ui.mdc`.

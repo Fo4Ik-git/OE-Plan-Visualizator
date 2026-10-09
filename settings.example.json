@@ -1,0 +1,10 @@
+{
+    "lua_root": "/Users/{username}/{directorys}/lua",
+    "default_host": "http://localhost:31880",
+    "default_operator": "lotusflaretelecom",
+    "operators": [
+        "pilotfiber",
+        "lotusflaretelecom"
+    ],
+    "port": 3000
+}

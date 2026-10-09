@@ -1,0 +1,101 @@
+---
+description: Modular, configurable, desktop-first adaptive UI components
+alwaysApply: true
+---
+
+# Modular, configurable, adaptive UI (mandatory)
+
+Every UI piece is a **module**: one responsibility, its own file, configurable via props, and usable on a desktop layout without looking broken.
+
+## Split by role — one file per UI region
+
+Do **not** dump sidebars, modals, toolbars, or panes into `PlanEditor.tsx`. Extract first, then wire.
+
+| Region | Put it in | Example |
+|--------|-----------|---------|
+| App chrome / toolbar | `src/components/editor/<Name>Toolbar.tsx` | `EditorToolbar` |
+| Side panel (left/right) | `src/components/editor/<Name>Sidebar.tsx` / `…Inspector.tsx` | `EditorSidebar`, `EditorInspector` |
+| Center canvas / main pane | `src/components/editor/<Name>Panel.tsx` | `EditorGraphPanel`, `EditorJsonPane` |
+| Modal / dialog flow | `src/components/editor/dialogs/<Name>Dialog.tsx` | `OpenPlanDialog`, `SettingsDialog`, `RunPlanDialog` |
+| Shared dialog shell | `src/components/editor/AppDialog.tsx` | wraps shadcn `Dialog*` |
+| Status / chrome strip | `src/components/editor/<Name>StatusBar.tsx` | footer status |
+| Tiny reusable chip/badge | `src/components/editor/<Name>.tsx` | `TypeBadge`, `ValidationBadge` |
+
+### Orchestrator rule
+
+`PlanEditor.tsx` (or any page) **only**:
+
+- owns state / store wiring / domain calls
+- composes modules
+- passes props / callbacks
+
+It must **not** contain large JSX for a sidebar, inspector, JSON pane, or modal body. If you are about to paste 40+ lines of panel markup into the orchestrator — stop and extract a component.
+
+Naming: `Editor` + role (`Sidebar`, `Inspector`, `JsonPane`) or feature + `Dialog` (`OpenPlanDialog`).
+
+## Configurable (props, not hard-coded)
+
+Every feature component must be **configurable** from the outside:
+
+1. **`className?: string`** — always accepted on the root; merge with `cn(...)`.
+2. **Behaviour via props/callbacks** — labels, open state, selected id, handlers (`onSelect`, `onSave`). No hidden global UI that cannot be overridden.
+3. **Variants / sizes** when useful — reuse shadcn `variant` / `size`, or local props like `size="sm" | "default"`.
+4. **Optional slots** — `children`, `footer`, `headerActions` when composition is cleaner than 10 boolean flags.
+5. **No magic strings inside leaves** for product copy that the parent should control (dialog titles, primary button labels) — pass as props with sensible defaults.
+
+```tsx
+// Correct — configurable module
+type EditorSidebarProps = {
+  className?: string;
+  plan: OePlan;
+  selected: string | null;
+  onSelect: (id: string) => void;
+};
+
+// Wrong — hard-wired, unreusable
+function Sidebar() {
+  const plan = usePlanStore(s => s.plan); // OK only in a thin connected wrapper
+  return <aside>…200 lines…</aside>; // inside PlanEditor.tsx — forbidden
+}
+```
+
+Thin **connected** wrappers that read the store are fine; the presentational core still takes props.
+
+## Adaptive + looks good on PC (desktop-first)
+
+Primary target is **desktop / laptop** (wide editor layout). Still must adapt cleanly.
+
+### Desktop (default)
+
+- Three-column shell: sidebar | graph+json | inspector (or equivalent).
+- Comfortable hit targets, readable density (~13px body), no cramped toolbars.
+- Panels scroll internally (`min-h-0` + `ScrollArea`); the page itself does not create double scroll chaos.
+- Graph and Monaco fill their panes (`h-full` / `min-h-0`).
+
+### Breakpoints (Tailwind)
+
+Use responsive utilities — do not assume a fixed 1440px window:
+
+| Width | Expected behaviour |
+|-------|-------------------|
+| `xl` / large desktop | Full 3-column editor |
+| `lg` | Slightly narrower side panels OK |
+| below `lg` (~1024) | Collapse or stack: e.g. sidebar/inspector become drawers/sheets **or** stacked rows — never overlapping unreadable columns |
+| narrow | Toolbar wraps (`flex-wrap`); hide non-essential hints; keep primary actions visible |
+
+### Concrete CSS/layout rules
+
+- Prefer `grid` / `flex` + `gap-*` with `minmax(0, 1fr)` so children can shrink.
+- Root shell: `h-svh` / `h-screen` + `min-h-0` on nested flex/grid children.
+- Avoid fixed pixel widths for the **center** pane; side panels may use `w-*` / `min-w-*` / `max-w-*` with responsive overrides (`md:w-64 lg:w-72`).
+- Modals: use `AppDialog` sizes (`default` / `wide` / `fullscreen`); content scrolls inside the dialog on shorter viewports.
+- Test mentally at **1280×800** and **1920×1080** — both must look intentional, not “stretched phone UI” and not “crushed columns”.
+
+## Checklist before merging UI work
+
+- [ ] New region lives in its own file under `editor/` (or `editor/dialogs/`)
+- [ ] Root accepts `className` and uses `cn`
+- [ ] Props cover data + callbacks (configurable)
+- [ ] Desktop 3-pane (or documented alternative) works at 1280px+
+- [ ] Below `lg`, layout does not overflow horizontally in a broken way
+- [ ] Reuses shadcn `ui/*` — see `component-reuse.mdc`

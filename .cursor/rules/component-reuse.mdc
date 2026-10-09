@@ -1,0 +1,50 @@
+---
+description: Reuse shadcn and editor components like a professional codebase
+alwaysApply: true
+globs: src/components/**/*.{tsx,ts},src/app/**/*.{tsx,ts}
+---
+
+# Component reuse (mandatory)
+
+This app uses **shadcn/ui** (`src/components/ui/*`). Treat it as the design system.
+
+Also follow **modular-ui.mdc**: split by region (sidebar / modal / pane), make components configurable (`className` + props), desktop-first adaptive layout.
+
+## Before writing markup
+
+1. Search `src/components/ui/` and `src/components/editor/` for an existing primitive or feature component.
+2. If missing from the repo but exists in shadcn: run `npx shadcn@latest add <name>` — do **not** hand-roll a parallel Button/Dialog/Input.
+3. Compose: `Dialog` + `Field` + `Input` + `Button`, not custom modal CSS.
+4. Prefer variants (`variant="outline"`, `size="sm"`) over `className` color overrides.
+5. If the UI is a **region** (sidebar, inspector, toolbar, modal body) — new file under `editor/` or `editor/dialogs/`, not inline in `PlanEditor`.
+
+## Hard rules
+
+| Need | Use | Do not |
+|------|-----|--------|
+| Click action | `Button` | `<button className="…">` |
+| Modal | `AppDialog` + `editor/dialogs/*Dialog` | custom backdrop/modal CSS; inline modal JSX in PlanEditor |
+| Form field | `Field` + `FieldLabel` + control | naked label + input stacks |
+| Tabs | `Tabs` / `TabsList` / `TabsTrigger` / `TabsContent` | manual tab buttons |
+| Status chip | `Badge` / `TypeBadge` / `ValidationBadge` | ad-hoc spans |
+| Lists | `ScrollArea` + buttons/items | unstyled overflow divs only |
+| Divider | `Separator` | `<hr>` / border-only divs |
+| Toast | `toast` from `sonner` | `alert()` for non-blocking info |
+| Icons | `lucide-react` + `data-icon` on Button | emoji / inline SVG duplicates |
+| class merge | `cn()` from `@/lib/utils` | string concat ternaries |
+
+## Styling
+
+- Layout/spacing only in `className` (`flex`, `gap-*`, `grid`, widths) + responsive prefixes (`lg:`, `xl:`).
+- Colors via semantic tokens: `bg-background`, `text-muted-foreground`, `border-border`, `bg-primary`.
+- No `space-y-*` / `space-x-*` — use `flex` + `gap-*`.
+- No raw palette classes for status (`text-emerald-500`); use `Badge` variants or `--success` / `--warn` tokens already in theme.
+- Never edit `src/components/ui/*` for one-off product looks — wrap in `src/components/editor/`.
+
+## File discipline
+
+- New reusable chrome → `src/components/editor/<Name>.tsx` exporting a named component.
+- Modals → `src/components/editor/dialogs/<Name>Dialog.tsx`.
+- Keep domain logic in `src/lib/plan/` and call it from editor components.
+- If a panel grows past ~250 lines of JSX, split it before adding more features.
+- Every feature component: **`className?: string`** on the root + behaviour via props (see modular-ui.mdc).
